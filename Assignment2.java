@@ -9,15 +9,11 @@ import java.util.Arrays;
 //Fields needed: six, with 4 addition sub fields in Address
 
 
-
-
-
-
-//Enter number amount and press enter
             String Number = JOptionPane.showInputDialog("How many students’ data (“N”) are to be entered? ");
-            int Count = 0;
-            Count = Integer.parseInt(Number);
-            getInfo(Count);
+                int Count = 0;
+                    Count = Integer.parseInt(Number);
+                        getInfo(Count);
+//Enter number amount and press enter
 
         }
 
@@ -26,16 +22,17 @@ import java.util.Arrays;
             int Count3 = Count;
 
 //Strings Declaration
-
             String fName;
             String lName;
-            String Id;
+
+            String ID;
             String gClassification;
-            String email;
-            String address1;
-            String city;
-            String state;
-            String zipCode;
+            String Email;
+            
+            String Address;
+            String State;
+            String City;
+            String ZipCode;
 //End of Strings
 
 
@@ -44,11 +41,12 @@ import java.util.Arrays;
 //Regular Expressions
             String re = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
             String idre = /*"^\\d{7}(\\d{2})?$";*/"^[0-9]{1,7}$";
-            String[] standing = new String[]{"Freshman", "freshman", "Sophmore", "sophmore", "Junior","junior","Senior","senior"};
+            String[] classification = new String[]{"Freshman", "freshman", "Sophomore", "sophomore", "Junior","junior","Senior","senior"};
             String temail = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+
             String address = "^\\d+\\s[A-z]+\\s[A-z]+";
-            String ccity = "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$";
             String[] street = new String[]{"AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND","NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"};
+            String ccity = "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$";
             String zipcode = "^[0-9]{9}$";
 
 
@@ -58,94 +56,125 @@ import java.util.Arrays;
 
 
 
-            for (int x = 0; x < Count; x++) {
+            for (int y = 0; y < Count; y++) {
 
 
 // Enter First Name and press Enter
-                fName = JOptionPane.showInputDialog("Enter First Name: ");
+                fName = JOptionPane.showInputDialog("Enter Your First Name: ");
+
                 while(!(fName.matches(re))){
-                    fName = JOptionPane.showInputDialog("Invalid Name, Enter Correct First Name: ");
+                    fName = JOptionPane.showInputDialog("Invalid Name, Enter a Correct First Name: ");
                 }
 
 // Enter Last Name and press Enter
-                lName = JOptionPane.showInputDialog("Enter Last Name: ");
+                lName = JOptionPane.showInputDialog("Enter Your Last Name: ");
+
                 while(!(lName.matches(re))){
-                    lName = JOptionPane.showInputDialog("Invalid Name, Enter Correct Last Name: ");
+                    lName = JOptionPane.showInputDialog("Invalid Name, Enter a Correct Last Name: ");
                 }
 
 //Enter PeopleSoft ID press Enter
-                Id = JOptionPane.showInputDialog("Enter PeopleSoft ID (<=7 digits): ");
-                while(!(Id.matches(idre))) {
-                    Id = JOptionPane.showInputDialog("Invalid ID, Enter PeopleSoft ID: ");
+                ID = JOptionPane.showInputDialog("Enter PeopleSoft ID: ");
+
+                while(!(ID.matches(idre))) {
+                    ID = JOptionPane.showInputDialog("Invalid ID, Enter PeopleSoft ID must be 7 digits: ");
 
                 }
 
 
 //Enter Grade Classification and press Enter
-                gClassification = JOptionPane.showInputDialog("Enter Grade Classification: ");
-                while(!(Arrays.asList(standing).contains(gClassification))){
-                    gClassification = JOptionPane.showInputDialog("Invalid Grade Classification, Enter Correct Grade Classification: ");
+                gClassification = JOptionPane.showInputDialog("Enter Your Grade Classification: ");
+
+                while(!(Arrays.asList(classification).contains(gClassification))){
+                    gClassification = JOptionPane.showInputDialog("Invalid Grade Classification, Enter A Correct Grade Classification: ");
 
                 }
 
 
 //Enter Email Address and press Enter
-                email = JOptionPane.showInputDialog("Enter Email Address: ");
-                while(!(email.matches(email))){
-                    email = JOptionPane.showInputDialog("Invalid Email Address, Enter Correct Email Address: ");
+                Email = JOptionPane.showInputDialog("Enter Your Email Address: ");
+
+                while(!(Email.matches(Email))){
+                    Email = JOptionPane.showInputDialog("Invalid Email Address, Enter A Correct Email Address: ");
                 }
 
 
 
 //Enter Home Address and press Enter
-                address1 = JOptionPane.showInputDialog("Enter Address Line 1 : ");
-                while(!(address1.matches(address))){
-                    address1 = JOptionPane.showInputDialog("Invalid Address line, Enter Correct Address Line: ");
+                Address = JOptionPane.showInputDialog("Enter Address Line: ");
+
+                while(!(Address.matches(address))){
+                    Address = JOptionPane.showInputDialog("Invalid Address line, Enter A Correct Address: ");
                 }
 
-                city = JOptionPane.showInputDialog("Enter City: ");
-                while(!(city.matches(city))){
-                    city = JOptionPane.showInputDialog("Invalid City, Enter City: ");
+
+//Enter the State and press Enter
+                State = JOptionPane.showInputDialog("Enter The State: ");
+
+                while(!(Arrays.asList(street).contains(State))) {
+                    State = JOptionPane.showInputDialog("Invalid Data, Enter A Correct State: ");
                 }
 
-                state = JOptionPane.showInputDialog("Enter State: ");
-                while(!(Arrays.asList(street).contains(state))){
-                    state = JOptionPane.showInputDialog("Invalid State, Enter State: ");
+
+//Enter a city and press Enter
+                City = JOptionPane.showInputDialog("Enter Your City: ");
+
+                while(!(City.matches(City))){
+                    City = JOptionPane.showInputDialog("Invalid City, Enter A Correct City: ");
 
                 }
 
-                zipCode = JOptionPane.showInputDialog("Enter Zip Code (9 digits): ");
-                while(!(zipCode.matches(zipcode))){
-                    zipCode = JOptionPane.showInputDialog("Invalid Zip Code, Enter Zip Code: ");
+//Enter your Zipcode and then press enter
+                ZipCode = JOptionPane.showInputDialog("Enter Your Zip Code (Must be 5 digits): ");
+
+                while(!(ZipCode.matches(zipcode))){
+                    ZipCode = JOptionPane.showInputDialog("Invalid Zip Code, Enter 5 digit Zip Code: ");
                 }
 
-                displayInfo(fName, lName, Id, gClassification, email, address1, city, state, zipCode, Count);
+
+                displayInfo(fName, lName, ID, gClassification, Email, Address, State, City, ZipCode, Count);
 
 
             }
             System.out.println();
 
-            System.out.println("Number of Students: " + Count);
+//Show number of students present
+            System.out.println("Number of Students present are: " + Count);
 
         }
-        public static void displayInfo(String data1,String data2,String data3,String data4,String data5,String data6,String data7,String data8,String data9, int count){
+
+        public static void displayInfo(String data1,String data2,String data3,String data4,String data5,String data6,String data7,String data8,String data9, int Count){
+
+     //Strings Declaration
+
             String datafname = data1;
+
             String datalname = data2;
-            String dataId = data3;
-            String datacStandings = data4;
-            String dataemail = data5;
-            String dataaddress1 = data6;
-            String datacity = data7;
-            String datastate = data8;
-            String datazipCode = data9;
 
-            String[] info = new String[]{datafname, datalname, dataId, datacStandings, dataemail, dataaddress1, datacity, datastate, datazipCode};
+            String dataID = data3;
 
-            for(int w = 0; w < info.length; w++){
-                System.out.print(info[w] + "\t");
+            String datagClassification = data4;
+
+            String dataEmail = data5;
+
+            String dataAddress = data6;
+
+            String dataState = data8;
+
+            String dataCity = data7;
+
+            String dataZipCode = data9;
+
+            String[] info = new String[]{datafname, datalname, dataID, datagClassification, dataEmail, dataAddress, dataState, dataCity, dataZipCode};
+
+//END
+
+            for(int e = 0; e < info.length; e++){
+                System.out.print(info[e] + "\t");
             }
             System.out.println();
         }
     }
 
-//Data Has Been Stored into Database. Thank You!!!
+//END Code
+//Data Has Been Successfully Stored into Database. Thank You!!!
